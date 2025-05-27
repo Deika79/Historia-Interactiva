@@ -57,29 +57,36 @@ botonesFiltro.forEach(boton => {
 
 // 4. Encuesta final
 function cargarEncuesta() {
+  const encuesta = document.getElementById("opciones-encuesta");
   encuesta.innerHTML = "";
+
+  const votoGuardado = localStorage.getItem("voto");
+
   personajes.forEach(p => {
     const btn = document.createElement("button");
     btn.textContent = p.nombre;
-    btn.addEventListener("click", () => {
-      localStorage.setItem("voto", p.nombre);
+
+    if (votoGuardado === p.nombre) {
       btn.textContent = `✔️ Votaste por ${p.nombre}`;
       btn.disabled = true;
+      btn.classList.add("votado");
+    }
+
+    btn.addEventListener("click", () => {
+      localStorage.setItem("voto", p.nombre);
+      // Desactivar todos los botones
+      Array.from(encuesta.children).forEach(b => {
+        b.disabled = true;
+        b.classList.remove("votado");
+      });
+      btn.textContent = `✔️ Votaste por ${p.nombre}`;
+      btn.classList.add("votado");
     });
+
     encuesta.appendChild(btn);
   });
-
-  // Marcar si ya votó
-  const votoGuardado = localStorage.getItem("voto");
-  if (votoGuardado) {
-    Array.from(encuesta.children).forEach(btn => {
-      if (btn.textContent === votoGuardado) {
-        btn.textContent = `✔️ Votaste por ${votoGuardado}`;
-        btn.disabled = true;
-      }
-    });
-  }
 }
+
 
 // Inicializar todo
 mostrarPersonajes(personajes);

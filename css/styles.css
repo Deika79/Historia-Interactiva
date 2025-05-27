@@ -8,7 +8,7 @@
 :root {
   --color-primario: #2c3e50;
   --color-secundario: #ecf0f1;
-  --color-acento: #3498db;
+  --color-acento: #494625;
   --color-modal: #ffffff;
   --fuente-base: 'Segoe UI', sans-serif;
 }
@@ -21,14 +21,36 @@ body {
   padding: 1rem;
 }
 
+/* Estilo general del header */
 header {
+  height: 300px;
+  background-image: url("../assets/map.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
   text-align: center;
-  margin-bottom: 2rem;
 }
+
+
+.header-overlay {
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 2rem;
+  width: 100%;
+}
+
 
 header h1 {
   font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  margin: 0;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
 }
 
 .filtros {
@@ -36,6 +58,7 @@ header h1 {
   justify-content: center;
   gap: 0.5rem;
   margin-bottom: 2rem;
+  margin-top: 2rem;
   flex-wrap: wrap;
 }
 
@@ -51,7 +74,7 @@ header h1 {
 
 .filtros button.activo,
 .filtros button:hover {
-  background-color: #217dbb;
+  background-color: #8b8922;
 }
 
 .galeria {
@@ -76,12 +99,19 @@ header h1 {
 .tarjeta img {
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .tarjeta h3 {
   padding: 0.5rem;
   font-size: 1.2rem;
+  text-align: center;
+}
+
+.tarjeta p {
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  text-align: center;
 }
 
 /* Modal */
@@ -122,6 +152,47 @@ header h1 {
 .encuesta {
   margin-top: 3rem;
   text-align: center;
+  font-family: var(--fuente-base);
+}
+
+.encuesta h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-primario);
+}
+
+.opciones-encuesta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.opciones-encuesta button {
+  background-color: var(--color-acento);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s, transform 0.2s;
+  min-width: 180px;
+}
+
+.opciones-encuesta button:hover:not(:disabled) {
+  background-color: #d0d02a;
+  transform: scale(1.05);
+}
+
+.opciones-encuesta button:disabled,
+.opciones-encuesta button.votado {
+  background-color: #dbd936;
+  color: #222;
+  cursor: default;
+  box-shadow: none;
+  transform: none;
 }
 
 footer {
