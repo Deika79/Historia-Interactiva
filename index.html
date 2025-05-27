@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Historias Interactivas</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Historias Interactivas</h1>
+    <p>Descubre a las figuras que cambiaron el mundo.</p>
+  </header>
+
+  <section class="filtros">
+    <button data-filtro="todos" class="activo">Todos</button>
+    <button data-filtro="Renacimiento">Renacimiento</button>
+    <button data-filtro="Edad Media">Edad Media</button>
+    <button data-filtro="Revolución">Revolución</button>
+  </section>
+
+  <main id="contenedor-personajes" class="galeria">
+    <!-- Aquí se insertan dinámicamente las tarjetas -->
+  </main>
+
+  <section id="modal" class="modal oculto">
+    <div class="modal-contenido">
+      <span class="cerrar">&times;</span>
+      <div id="detalle-personaje">
+        <!-- Se rellena con JS -->
+      </div>
+    </div>
+  </section>
+
+  <section class="encuesta">
+    <h2>¿Con qué personaje te tomarías un café?</h2>
+    <div id="opciones-encuesta">
+      <!-- Opciones generadas por JS -->
+    </div>
+  </section>
+
+  <footer>
+    <p>Proyecto educativo por [Tu Nombre]. Imágenes de uso libre.</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
